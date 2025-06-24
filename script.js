@@ -25,7 +25,7 @@
   <table id="build-table"></table>
 
   <script>
-    const scriptURL = "https://script.google.com/macros/s/AKfycbyTqjcE-x6fSBelow9yv8IEdbnOCNX3Axe3MSpI3oK-3ZWQnb1F80eLV3v68irO7slF/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbwAP2IrzRJtHMsJOu-xCLBLhlXrNR1tvRM76-Z_lw8yUkbnus4z-qtryeegcO6OEtmT/exec";
 
     function loadBuilds(type, value) {
       const loading = document.getElementById('loading');
