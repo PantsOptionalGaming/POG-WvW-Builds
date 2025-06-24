@@ -1,4 +1,4 @@
-// ✅ Your deployed web app URL:
+// Your deployed Google Apps Script Web App URL here:
 const scriptURL = "https://script.google.com/macros/s/AKfycbyTqjcE-x6fSBelow9yv8IEdbnOCNX3Axe3MSpI3oK-3ZWQnb1F80eLV3v68irO7slF/exec";
 
 function loadBuilds(type, value) {
@@ -7,10 +7,11 @@ function loadBuilds(type, value) {
   loading.style.display = 'block';
   table.innerHTML = '';
 
-  // Generate a unique callback function name
+  // JSONP callback function name
   const callbackName = `cb_${Date.now()}`;
-  window[callbackName] = function (data) {
-    delete window[callbackName]; // Clean up
+
+  window[callbackName] = function(data) {
+    delete window[callbackName];
     loading.style.display = 'none';
 
     if (!data || !data.length) {
@@ -25,18 +26,19 @@ function loadBuilds(type, value) {
     rows.forEach(row => {
       html += '<tr>' + row.map(cell => {
         if (typeof cell === 'string' && cell.startsWith('http')) {
-          return `<td><a href="${cell}" target="_blank">Link</a></td>`;
+          return `<td><a href="${cell}" target="_blank" rel="noopener noreferrer">Link</a></td>`;
         }
         return `<td>${cell}</td>`;
       }).join('') + '</tr>';
     });
+
     table.innerHTML = html;
   };
 
-  // Add script tag to fetch JSONP response
+  // Create a script tag to load JSONP response
   const script = document.createElement('script');
   script.src = `${scriptURL}?filterType=${type}&filterValue=${encodeURIComponent(value)}&callback=${callbackName}`;
-  script.onerror = function () {
+  script.onerror = function() {
     loading.style.display = 'none';
     table.innerHTML = '<tr><td>Error loading builds.</td></tr>';
   };
