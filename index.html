@@ -1,46 +1,165 @@
-<div class="button-grid">
-  <button onclick="loadBuilds('profession', 'Elementalist')">
-    <img src="images/GW2 Buttons Elementalist.png" alt="Elementalist">
-  </button>
-  <button onclick="loadBuilds('profession', 'Engineer')">
-    <img src="images/GW2 Buttons Engineer.png" alt="Engineer">
-  </button>
-  <button onclick="loadBuilds('profession', 'Guardian')">
-    <img src="images/GW2 Buttons Guardian.png" alt="Guardian">
-  </button>
-  <button onclick="loadBuilds('profession', 'Mesmer')">
-    <img src="images/GW2 Buttons Mesmer.png" alt="Mesmer">
-  </button>
-  <button onclick="loadBuilds('profession', 'Necromancer')">
-    <img src="images/GW2 Buttons Necromancer.png" alt="Necromancer">
-  </button>
-  <button onclick="loadBuilds('profession', 'Ranger')">
-    <img src="images/GW2 Buttons Ranger.png" alt="Ranger">
-  </button>
-  <button onclick="loadBuilds('profession', 'Revenant')">
-    <img src="images/GW2 Buttons Revenant.png" alt="Revenant">
-  </button>
-  <button onclick="loadBuilds('profession', 'Thief')">
-    <img src="images/GW2 Buttons Thief.png" alt="Thief">
-  </button>
-  <button onclick="loadBuilds('profession', 'Warrior')">
-    <img src="images/GW2 Buttons Warrior.png" alt="Warrior">
-  </button>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>POG WvW Builds</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #111;
+      color: #fff;
+      text-align: center;
+      margin: 0;
+      padding: 20px;
+    }
 
-  <!-- Roles -->
-  <button onclick="loadBuilds('role', 'Support')">
-    <img src="images/GW2 Buttons Support.png" alt="Support">
-  </button>
-  <button onclick="loadBuilds('role', 'Utility Support')">
-    <img src="images/GW2 Buttons Utility.png" alt="Utility Support">
-  </button>
-  <button onclick="loadBuilds('role', 'FrontLineDPS')">
-    <img src="images/GW2 Buttons FrontLineDPS.png" alt="FrontLineDPS">
-  </button>
-  <button onclick="loadBuilds('role', 'BackLineDPS')">
-    <img src="images/GW2 Buttons BackLineDPS.png" alt="BackLineDPS">
-  </button>
-  <button onclick="loadBuilds('role', 'Boon Strip')">
-    <img src="images/GW2 Buttons Boon Strip.png" alt="Boon Strip">
-  </button>
-</div>
+    h1 {
+      color: #FFD700;
+      margin-bottom: 20px;
+    }
+
+    h2 {
+      margin: 30px 0 10px;
+      color: #00BFFF;
+    }
+
+    .button-grid {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      border: none;
+      background: transparent;
+      padding: 0;
+      cursor: pointer;
+    }
+
+    button img {
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    button img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(255, 255, 255, 0.3);
+    }
+
+    #loading {
+      margin: 20px;
+      font-style: italic;
+      color: #ccc;
+    }
+
+    table {
+      margin: 0 auto;
+      border-collapse: collapse;
+      width: 90%;
+      max-width: 1000px;
+      background-color: #222;
+      color: #fff;
+    }
+
+    th, td {
+      border: 1px solid #444;
+      padding: 8px;
+    }
+
+    th {
+      background-color: #333;
+      font-weight: bold;
+    }
+
+    a {
+      color: #00BFFF;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>POG WvW Builds</h1>
+
+  <!-- === Professions === -->
+  <h2>Professions</h2>
+  <div class="button-grid">
+    <button onclick="loadBuilds('profession', 'Elementalist')"><img src="images/GW2 Buttons Elementalist.png" alt="Elementalist"></button>
+    <button onclick="loadBuilds('profession', 'Engineer')"><img src="images/GW2 Buttons Engineer.png" alt="Engineer"></button>
+    <button onclick="loadBuilds('profession', 'Guardian')"><img src="images/GW2 Buttons Guardian.png" alt="Guardian"></button>
+    <button onclick="loadBuilds('profession', 'Mesmer')"><img src="images/GW2 Buttons Mesmer.png" alt="Mesmer"></button>
+    <button onclick="loadBuilds('profession', 'Necromancer')"><img src="images/GW2 Buttons Necromancer.png" alt="Necromancer"></button>
+    <button onclick="loadBuilds('profession', 'Ranger')"><img src="images/GW2 Buttons Ranger.png" alt="Ranger"></button>
+    <button onclick="loadBuilds('profession', 'Revenant')"><img src="images/GW2 Buttons Revenant.png" alt="Revenant"></button>
+    <button onclick="loadBuilds('profession', 'Thief')"><img src="images/GW2 Buttons Thief.png" alt="Thief"></button>
+    <button onclick="loadBuilds('profession', 'Warrior')"><img src="images/GW2 Buttons Warrior.png" alt="Warrior"></button>
+  </div>
+
+  <!-- === Roles === -->
+  <h2>Roles</h2>
+  <div class="button-grid">
+    <button onclick="loadBuilds('role', 'Support')"><img src="images/GW2 Buttons Support.png" alt="Support"></button>
+    <button onclick="loadBuilds('role', 'Utility Support')"><img src="images/GW2 Buttons Utility.png" alt="Utility Support"></button>
+    <button onclick="loadBuilds('role', 'FrontLineDPS')"><img src="images/GW2 Buttons FrontLineDPS.png" alt="FrontLine DPS"></button>
+    <button onclick="loadBuilds('role', 'BackLineDPS')"><img src="images/GW2 Buttons BackLineDPS.png" alt="BackLine DPS"></button>
+    <button onclick="loadBuilds('role', 'Boon Strip')"><img src="images/GW2 Buttons Boon Strip.png" alt="Boon Strip"></button>
+  </div>
+
+  <div id="loading">Loading builds...</div>
+  <table id="build-table"></table>
+
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbwAP2IrzRJtHMsJOu-xCLBLhlXrNR1tvRM76-Z_lw8yUkbnus4z-qtryeegcO6OEtmT/exec";
+
+    function loadBuilds(type, value) {
+      const loading = document.getElementById('loading');
+      const table = document.getElementById('build-table');
+      loading.style.display = 'block';
+      table.innerHTML = '';
+
+      const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
+
+      window[callbackName] = function(data) {
+        delete window[callbackName];
+        loading.style.display = 'none';
+
+        if (!data || !data.length) {
+          table.innerHTML = '<tr><td>No builds found.</td></tr>';
+          return;
+        }
+
+        const headers = data[0];
+        const rows = data.slice(1);
+
+        let html = '<tr>' + headers.map(h => `<th>${h}</th>`).join('') + '</tr>';
+        rows.forEach(row => {
+          html += '<tr>' + row.map(cell => {
+            if (typeof cell === 'string' && cell.startsWith('http')) {
+              return `<td><a href="${cell}" target="_blank" rel="noopener noreferrer">Link</a></td>`;
+            }
+            return `<td>${cell}</td>`;
+          }).join('') + '</tr>';
+        });
+
+        table.innerHTML = html;
+      };
+
+      const script = document.createElement('script');
+      script.src = `${scriptURL}?filterType=${type}&filterValue=${encodeURIComponent(value)}&callback=${callbackName}`;
+      script.onerror = function() {
+        loading.style.display = 'none';
+        table.innerHTML = '<tr><td>Error loading builds.</td></tr>';
+      };
+      document.body.appendChild(script);
+    }
+  </script>
+</body>
+</html>
