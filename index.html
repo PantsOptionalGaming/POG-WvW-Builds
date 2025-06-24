@@ -1,0 +1,40 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GW2 Builds Viewer</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>GW2 Builds Viewer</h1>
+    <p>Select a Profession or Role to view builds.</p>
+
+    <div class="buttons">
+      <h2>Professions</h2>
+      <button onclick="loadBuilds('profession', 'Elementalist')">Elementalist</button>
+      <button onclick="loadBuilds('profession', 'Engineer')">Engineer</button>
+      <button onclick="loadBuilds('profession', 'Guardian')">Guardian</button>
+      <button onclick="loadBuilds('profession', 'Mesmer')">Mesmer</button>
+      <button onclick="loadBuilds('profession', 'Necromancer')">Necromancer</button>
+      <button onclick="loadBuilds('profession', 'Ranger')">Ranger</button>
+      <button onclick="loadBuilds('profession', 'Revenant')">Revenant</button>
+      <button onclick="loadBuilds('profession', 'Thief')">Thief</button>
+      <button onclick="loadBuilds('profession', 'Warrior')">Warrior</button>
+
+      <h2>Roles</h2>
+      <button onclick="loadBuilds('role', 'Support')">Support</button>
+      <button onclick="loadBuilds('role', 'Utility Support')">Utility Support</button>
+      <button onclick="loadBuilds('role', 'FrontLineDPS')">FrontLine DPS</button>
+      <button onclick="loadBuilds('role', 'BackLineDPS')">BackLine DPS</button>
+      <button onclick="loadBuilds('role', 'BoonStrip')">Boon Strip</button>
+    </div>
+
+    <div id="loading" style="display:none">Loading builds...</div>
+    <table id="build-table"></table>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
