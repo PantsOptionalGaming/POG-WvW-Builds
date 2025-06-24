@@ -1,5 +1,4 @@
-<script>
-const scriptURL = "https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec";
+const scriptURL = "https://script.google.com/macros/s/AKfycbyTqjcE-x6fSBelow9yv8IEdbnOCNX3Axe3MSpI3oK-3ZWQnb1F80eLV3v68irO7slF/exec";
 
 function loadBuilds(type, value) {
   const loading = document.getElementById('loading');
@@ -7,10 +6,10 @@ function loadBuilds(type, value) {
   loading.style.display = 'block';
   table.innerHTML = '';
 
-  const callbackName = 'handleBuildData_' + Math.floor(Math.random() * 100000);
+  const callbackName = `callback_${Date.now()}`;
   window[callbackName] = function(data) {
-    loading.style.display = 'none';
     delete window[callbackName];
+    loading.style.display = 'none';
 
     if (!data || !data.length) {
       table.innerHTML = '<tr><td>No builds found.</td></tr>';
@@ -29,16 +28,11 @@ function loadBuilds(type, value) {
         return `<td>${cell}</td>`;
       }).join('') + '</tr>';
     });
-
     table.innerHTML = html;
   };
 
+  // Create script tag dynamically for JSONP
   const script = document.createElement('script');
-  script.src = `${scriptURL}?callback=${callbackName}&filterType=${type}&filterValue=${encodeURIComponent(value)}`;
-  script.onerror = () => {
-    loading.style.display = 'none';
-    table.innerHTML = '<tr><td>Error loading builds.</td></tr>';
-  };
+  script.src = `${scriptURL}?filterType=${type}&filterValue=${encodeURIComponent(value)}&callback=${callbackName}`;
   document.body.appendChild(script);
 }
-</script>
