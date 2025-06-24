@@ -5,7 +5,7 @@ function loadBuilds(type, value) {
   loading.style.display = 'block';
   table.innerHTML = '';
 
-  fetch(`https://script.google.com/macros/s/YOUR_DEPLOYED_WEBAPP_ID/exec?filterType=${type}&filterValue=${encodeURIComponent(value)}`)
+  fetch(`https://script.google.com/macros/s/AKfycbwAP2IrzRJtHMsJOu-xCLBLhlXrNR1tvRM76-Z_lw8yUkbnus4z-qtryeegcO6OEtmT/exec?filterType=${type}&filterValue=${encodeURIComponent(value)}`)
     .then(response => response.json())
     .then(data => {
       loading.style.display = 'none';
