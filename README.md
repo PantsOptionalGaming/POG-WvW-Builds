@@ -1,9 +1,17 @@
+# POG WvW Builds - Static Website
 
-# GW2 Builds Viewer (Static Web Version)
+## Usage
 
-This is a static frontend to view GW2 builds stored in a Google Sheet.
+1. Upload this folder to your GitHub repository or any static hosting.
+2. Open `index.html` in your browser.
+3. Click buttons to load builds from the Google Apps Script Web App.
+4. Make sure your Google Apps Script Web App is deployed with:
+   - Anyone, even anonymous can access (public)
+   - The Web App URL is set correctly in `script.js` (variable `scriptURL`)
 
-## How to Use
-1. Deploy the `Code.gs` as a Web App on your Google account.
-2. Replace `YOUR_DEPLOYED_WEBAPP_ID` in `script.js` with your actual Web App URL ID.
-3. Upload this folder to GitHub Pages or any static web hosting provider.
+## Notes
+
+- This uses JSONP to avoid CORS issues.
+- Buttons filter builds by profession or role.
+- Builds data is loaded live from your Google Sheets via the Google Apps Script Web App.
+
