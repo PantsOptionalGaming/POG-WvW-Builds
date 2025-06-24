@@ -1,4 +1,3 @@
-// Your deployed Google Apps Script Web App URL here:
 const scriptURL = "https://script.google.com/macros/s/AKfycbyTqjcE-x6fSBelow9yv8IEdbnOCNX3Axe3MSpI3oK-3ZWQnb1F80eLV3v68irO7slF/exec";
 
 function loadBuilds(type, value) {
@@ -7,8 +6,7 @@ function loadBuilds(type, value) {
   loading.style.display = 'block';
   table.innerHTML = '';
 
-  // JSONP callback function name
-  const callbackName = `cb_${Date.now()}`;
+  const callbackName = 'jsonp_callback_' + Math.round(100000 * Math.random());
 
   window[callbackName] = function(data) {
     delete window[callbackName];
@@ -35,7 +33,6 @@ function loadBuilds(type, value) {
     table.innerHTML = html;
   };
 
-  // Create a script tag to load JSONP response
   const script = document.createElement('script');
   script.src = `${scriptURL}?filterType=${type}&filterValue=${encodeURIComponent(value)}&callback=${callbackName}`;
   script.onerror = function() {
