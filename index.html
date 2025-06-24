@@ -1,40 +1,66 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GW2 Builds Viewer</title>
-  <link rel="stylesheet" href="styles.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>POG WvW Builds</title>
+  <script src="script.js" defer></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      max-width: 600px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 15px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    #loading {
+      color: #0077cc;
+      margin: 15px 0;
+      display: none;
+      font-weight: bold;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 10px;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    a {
+      color: #0066cc;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>GW2 Builds Viewer</h1>
-    <p>Select a Profession or Role to view builds.</p>
+  <h1>POG WvW Builds</h1>
 
-    <div class="buttons">
-      <h2>Professions</h2>
-      <button onclick="loadBuilds('profession', 'Elementalist')">Elementalist</button>
-      <button onclick="loadBuilds('profession', 'Engineer')">Engineer</button>
-      <button onclick="loadBuilds('profession', 'Guardian')">Guardian</button>
-      <button onclick="loadBuilds('profession', 'Mesmer')">Mesmer</button>
-      <button onclick="loadBuilds('profession', 'Necromancer')">Necromancer</button>
-      <button onclick="loadBuilds('profession', 'Ranger')">Ranger</button>
-      <button onclick="loadBuilds('profession', 'Revenant')">Revenant</button>
-      <button onclick="loadBuilds('profession', 'Thief')">Thief</button>
-      <button onclick="loadBuilds('profession', 'Warrior')">Warrior</button>
-
-      <h2>Roles</h2>
-      <button onclick="loadBuilds('role', 'Support')">Support</button>
-      <button onclick="loadBuilds('role', 'Utility Support')">Utility Support</button>
-      <button onclick="loadBuilds('role', 'FrontLineDPS')">FrontLine DPS</button>
-      <button onclick="loadBuilds('role', 'BackLineDPS')">BackLine DPS</button>
-      <button onclick="loadBuilds('role', 'BoonStrip')">Boon Strip</button>
-    </div>
-
-    <div id="loading" style="display:none">Loading builds...</div>
-    <table id="build-table"></table>
+  <div>
+    <button onclick="loadBuilds('profession', 'Warrior')">Warrior</button>
+    <button onclick="loadBuilds('profession', 'Guardian')">Guardian</button>
+    <button onclick="loadBuilds('profession', 'Elementalist')">Elementalist</button>
+    <button onclick="loadBuilds('role', 'Support')">Support</button>
+    <button onclick="loadBuilds('role', 'Utility Support')">Utility Support</button>
+    <button onclick="loadBuilds('role', 'FrontLineDPS')">FrontLine DPS</button>
+    <button onclick="loadBuilds('role', 'BackLineDPS')">BackLine DPS</button>
+    <button onclick="loadBuilds('role', 'BoonStrip')">Boon Strip</button>
   </div>
-  <script src="script.js"></script>
+
+  <div id="loading">Loading builds...</div>
+
+  <table id="build-table"></table>
 </body>
 </html>
